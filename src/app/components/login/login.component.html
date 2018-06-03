@@ -1,0 +1,33 @@
+<div id="contenedor">
+    <div class="login">
+        <form id="formulario" (ngSubmit)="iniciarSesion()">
+          <h2>Iniciar Sesión</h2>
+          <h4>Centro LEO</h4>
+          <div class="form-group">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico" name="correo" [(ngModel)]="usuario.correo">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="contrasena" [(ngModel)]="usuario.contrasena">
+            </div>
+          <button type="submit" class="btn btn-outline-primary boton" name="submit">Iniciar Sesión</button>
+        </form>
+      </div>
+</div>
+ 
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-s6">
+        <br/>
+        <img src="/assets/img/logo-icesi.png" />
+        <p>Centro LEO</p>
+        <p>
+          <i class="fas fa-phone"></i>+57 (2) 555 2334 +57 (2) 555 1441
+        </p>
+        <p>Universidad Icesi, Calle 18 No. 122-135 Pance, Cali - Colombia</p>
+        <p>Biblioteca Universidad Icesi - Cali</p>
+        <p>Todos los derechos reservados. Imágenes propiedad de la Universidad Icesi</p>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,107 @@
+<div id="contenedor">
+  <div class="registro">
+    <form id="formulario" (ngSubmit)="addUser()">
+      <h2>Registro</h2>
+      <h4>Centro LEO</h4>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input type="text" class="form-control" id="exampleInputNombre" placeholder="Nombre Completo" name="nombre" [(ngModel)]="usuario.nombre">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input type="text" class="form-control" id="exampleInputCodigo" placeholder="Código de Estudiante" name="codigo" [(ngModel)]="usuario.codigo">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <select class="form-control" name="semestre" [(ngModel)]="usuario.semestre">
+              <option>Semestre</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="form-group">
+            <select class="form-control" name="carrera" [(ngModel)]="usuario.carrera" >
+              <option >Programa Académico</option>
+              <option>Administración de Empresas</option>
+              <option>Contaduría Publica y Finanzas Internacionales</option>
+              <option>Economía</option>
+              <option>Economía y Negocios Internacionales</option>
+              <option>Mercadeo Internacinal y Publicidad</option>
+              <option>Diseño Industrial</option>
+              <option>Diseño de Medios Interactivos</option>
+              <option>Ingeniería de Sistemas</option>
+              <option>Ingeniería Industrial</option>
+              <option>Ingeniería Telemática</option>
+              <option>Ingeniería Bioquímica</option>
+              <option>Ciencia Política con énfasis en Relaciones Internacionales</option>
+              <option>Derecho</option>
+              <option>Psicología</option>
+              <option>Música</option>
+              <option>Sociología</option>
+              <option>Biología</option>
+              <option>Química</option>
+              <option>Medicina</option>
+              <option>Licenciatura en Educación Basica Primaria</option>
+              <option>Licenciatura en Literatura y Lengua Castellana</option>
+              <option>Licenciatura en Artes con énfasis en tecnologías para la creación</option>
+              <option>Licenciatura en Lenguas Extrangeras con énfasis en inglés</option>
+              <option>Licenciatura en Ciencias Naturales</option>
+              <option>Licenciatura en Ciencias Sociales</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo Electrónico" name="correo" [(ngModel)]="usuario.correo">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="contrasena" [(ngModel)]="usuario.contrasena">
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <button type="submit" class="btn btn-outline-primary boton"  name="submit">Registrarme</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-s6">
+        <br/>
+        <img src="/assets/img/logo-icesi.png" />
+        <p>Centro LEO</p>
+        <p>
+          <i class="fas fa-phone"></i>+57 (2) 555 2334 +57 (2) 555 1441
+        </p>
+        <p>Universidad Icesi, Calle 18 No. 122-135 Pance, Cali - Colombia</p>
+        <p>Biblioteca Universidad Icesi - Cali</p>
+        <p>Todos los derechos reservados. Imágenes propiedad de la Universidad Icesi</p>
+      </div>
+    </div>
+  </div>
+</footer>

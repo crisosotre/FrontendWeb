@@ -1,0 +1,47 @@
+#contenedor{
+    background: url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c0882af6fc30960d027b31250a10b75d&auto=format&fit=crop&w=751&q=80) 50% 50% no-repeat;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+	padding: 0;
+	width: 100%;	  
+	position: relative;  
+}
+
+footer {
+    background-color: black;
+    bottom: 0;
+    color: #ffffff;
+    width: 100%;
+}
+
+.login {
+	border: 1px solid rgba(255,255,255,0.3);
+	border-radius: 5px;
+    color: white;
+    padding: 3em;
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	background-color: rgba(0,0,0,0.5);
+}
+
+h2 {
+	margin-top: 0px;
+	font-weight: lighter;
+	color: #fff;
+	font-size: 50px;
+	text-align: center;
+}
+
+h4 {
+    font-weight: lighter;
+	color: #fff;
+	text-align: center;
+}
+
+.boton {
+    width: 300px;
+    text-align: center;
+}
