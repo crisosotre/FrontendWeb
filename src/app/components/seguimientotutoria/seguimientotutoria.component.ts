@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Materia} from '../../models/materia';
 import {Asistencia} from '../../models/asistencia';
 import {AsistenciaService} from '../../services/asistencia.service';
-import {MateriaService} from '../../services/materia.service'
+import {MateriaService} from '../../services/materia.service';
 
 
 @Component({

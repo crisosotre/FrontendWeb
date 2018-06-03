@@ -6,6 +6,8 @@ import { SeguimientotutoriaComponent } from './seguimientotutoria/seguimientotut
 import { ObservacionestutoriaComponent } from './observacionestutoria/observacionestutoria.component';
 import { RegistroComponent } from './registro/registro.component';
 import {ReporteComponent} from './reporte/reporte.component';
+import {MateriaComponent} from './materia/materia.component';
+import {EstudianteComponent} from './estudiante/estudiante.component';
 
 export const RouterConfig: Route [] = [
     {path: 'inicio', component: InicioComponent},
@@ -14,6 +16,8 @@ export const RouterConfig: Route [] = [
     {path: 'observacionestutoria', component: ObservacionestutoriaComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'reporte', component: ReporteComponent},
+    {path: 'materia', component: MateriaComponent},
+    {path: 'estudiante', component: EstudianteComponent},
     {path: '', redirectTo: 'inicio' , pathMatch:"full"},
     {path: '**', redirectTo: 'inicio'},
 ]

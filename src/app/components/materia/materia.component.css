@@ -1,0 +1,27 @@
+footer {
+    background-color: black;
+    bottom: 0;
+    color: #ffffff;
+    overflow: auto;
+}
+
+#menu {
+    padding-right: 0%;
+    margin-right: 0%;
+    background-color:gainsboro;
+   
+}
+
+#cuerpo {
+    padding-left: 0%;
+    margin-left: 0%;
+}
+
+#evaluacion {
+    text-align: center;
+}
+
+.boton {
+    width: 480px;
+    text-align: center;
+}

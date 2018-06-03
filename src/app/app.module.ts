@@ -22,6 +22,8 @@ import { MateriaService } from  './services/materia.service';
 import { AsistenciaService } from  './services/asistencia.service';
 import { TipoUsuarioService } from  './services/tipo-usuario.service';
 import { UsuarioService } from  './services/usuario.service';
+import { MateriaComponent } from './components/materia/materia.component';
+import { EstudianteComponent } from './components/estudiante/estudiante.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { UsuarioService } from  './services/usuario.service';
     ReporteComponent,
     GraficoLineaComponent,
     GraficoDonaComponent,
+    MateriaComponent,
+    EstudianteComponent,
   ],
   imports: [
     FormsModule,
