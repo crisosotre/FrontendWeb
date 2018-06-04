@@ -32,7 +32,6 @@ export class SeguimientotutoriaComponent implements OnInit {
       programaAcademico:"Programa Académico"
 
     }
-
     this.materia={
       id:0,
       nombre:"Materia",
@@ -65,6 +64,7 @@ export class SeguimientotutoriaComponent implements OnInit {
       this.asistenciaService.addAsistencia(this.asistencia).subscribe((response) =>{
         console.log(response.data);
       });
+      this.refrescar();
     }
 
     getMaterias(){
@@ -126,6 +126,21 @@ export class SeguimientotutoriaComponent implements OnInit {
 
     
    // console.log(response2);
+   refrescar(){
+    this.asistencia={
+      estudiante_id:0,
+      fecha:null,
+      generoDiscursivo:"Genero Discursivo",
+      id:0,
+      materia_id:0,
+      numEstudiantes:0,
+      tipoTexto:"",
+      tipoTutoria:"Tipo de Tutoría",
+      tutor_id:0,
+      programaAcademico:"Programa Académico"
+
+    }
+   }
   }
 
 

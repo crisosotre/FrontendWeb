@@ -24,6 +24,18 @@ export class RegistroComponent implements OnInit {
     }
   }
 
+  refrescar(){
+    this.usuario={
+      id: 0,
+    codigo: "",
+    nombre: "",
+    carrera: "Programa Académico",
+    semestre: "Semestre",
+    correo: "",
+    contrasena: "",
+    tipo_usuario_id: 1
+    }
+  }
   ngOnInit() {
     console.log('CARGANDO USUARIOS');
     this.usuarioService.getUsuarios().subscribe((usuariosNuevos) =>{
@@ -38,6 +50,7 @@ export class RegistroComponent implements OnInit {
       console.log(response.data);
     });
     console.log(response2);
+    this.refrescar();
   }
 
 }
