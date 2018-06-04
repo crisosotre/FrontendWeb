@@ -24,6 +24,8 @@ import { TipoUsuarioService } from  './services/tipo-usuario.service';
 import { UsuarioService } from  './services/usuario.service';
 import { MateriaComponent } from './components/materia/materia.component';
 import { EstudianteComponent } from './components/estudiante/estudiante.component';
+import { LoginGuard } from './login.guard';
+import { NoLoginGuard } from './no-login.guard';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
     TipoUsuarioService,
     MateriaService,
     AsistenciaService,
+    LoginGuard,
+    NoLoginGuard,
   ],
   bootstrap: [AppComponent]
 })
