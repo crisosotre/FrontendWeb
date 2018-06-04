@@ -25,3 +25,12 @@ footer {
     width: 480px;
     text-align: center;
 }
+
+#boton {
+    padding-left: 40%;
+}
+
+#boton button {
+    width: 30%;
+    text-align: center;
+}

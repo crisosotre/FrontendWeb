@@ -22,19 +22,19 @@ export class SeguimientotutoriaComponent implements OnInit {
     this.asistencia={
       estudiante_id:0,
       fecha:null,
-      generoDiscursivo:"Genero Discursivo",
+      generoDiscursivo:"",
       id:0,
       materia_id:0,
       numEstudiantes:0,
       tipoTexto:"",
-      tipoTutoria:"Tipo de Tutoría",
+      tipoTutoria:"",
       tutor_id:0,
-      programaAcademico:"Programa Académico"
+      programaAcademico:""
 
     }
     this.materia={
       id:0,
-      nombre:"Materia",
+      nombre:"",
       profesor:"",
       tipoCurso:""
     }
@@ -82,20 +82,20 @@ export class SeguimientotutoriaComponent implements OnInit {
     );
 
     this.asistencia={
-      estudiante_id:1,
+      estudiante_id:0,
       fecha: "2012-03-21 00:00:00",
-      generoDiscursivo:"Genero Discursivo",
+      generoDiscursivo:"",
       id:44,
       materia_id:1,
-      numEstudiantes:0,
-      tipoTexto:"Tipo de Texto",
-      tipoTutoria:"Tipo de Tutoría",
+      numEstudiantes:1,
+      tipoTexto:"",
+      tipoTutoria:"",
       tutor_id:1,
-      programaAcademico: "Programa Académico"
+      programaAcademico: ""
     }
     this.materia={
       id:0,
-      nombre:"Materia",
+      nombre:"Seleccione",
       profesor:"TEST",
       tipoCurso:"TEST"
     }
