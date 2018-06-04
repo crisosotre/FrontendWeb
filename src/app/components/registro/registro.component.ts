@@ -16,14 +16,11 @@ export class RegistroComponent implements OnInit {
       id: 0,
     codigo: "",
     nombre: "",
-    carrera: "",
-    semestre: "",
+    carrera: "Programa Académico",
+    semestre: "Semestre",
     correo: "",
     contrasena: "",
-    tipo_usuario_id: 1,
-    created_at: null,
-    updated_at:null,
-    deleted_at: null
+    tipo_usuario_id: 1
     }
   }
 

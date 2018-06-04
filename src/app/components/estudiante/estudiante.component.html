@@ -21,23 +21,23 @@
       <img src="/../assets/img/banner.jpg" height="165" width="1019" />
     </div>
     <br/>
-    <form id="formulario" >
+    <form id="formulario" (ngSubmit)="addEstudiante()"> 
       <div class="col-sm-12">
-        <div class="row">
+        <div class="row"> 
         <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="Nombre del estudiante" >
+          <input type="text" class="form-control" placeholder="Nombre del estudiante" name="nombre" [(ngModel)]="estudiante.nombre" >
         </div>
         <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="Código del estudiante"  >
+          <input type="text" class="form-control" placeholder="Código del estudiante" name="codigo" [(ngModel)]="estudiante.codigo" >
         </div>
         <div class="col-sm-6">
           <br/>
-          <input type="text" class="form-control" placeholder="Correo electrónico del estudiante" >
+          <input type="text" class="form-control" placeholder="Correo electrónico del estudiante" name="correo" [(ngModel)]="estudiante.correo" >
         </div>
         <div class="col-sm-6">
           <br/>
           <div class="form-group">
-            <select class="form-control" >
+            <select class="form-control" name="semestre" [(ngModel)]="estudiante.semestre"  >
               <option>Semestre</option>
               <option>1</option>
               <option>2</option>
@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-              <select class="form-control">
+              <select class="form-control" name="carrera" [(ngModel)]="estudiante.carrera" >
                 <option>Programa Académico</option>
                 <option>Administración de Empresas</option>
                 <option>Contaduría Publica y Finanzas Internacionales</option>
@@ -86,11 +86,8 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-12">
             <button type="submit" class="btn btn-outline-success boton">Crear estudiante</button>
-          </div>
-          <div class="col-sm-6">
-            <button type="submit" class="btn btn-outline-danger boton">Cancelar</button>
           </div>
     </div>
     <br/>

@@ -27,7 +27,6 @@ export class MateriaService {
   }
 
   addMaterias (materia: Materia){
-    console.log('entra add user');
     return this.http.post(
       'http://127.0.0.1:8000/api/materias',materia,{headers: new Headers({'Content-Type':  'application/json'})}
     ).map((response:Response)=>response.json().data);

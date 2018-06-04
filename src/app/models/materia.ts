@@ -3,4 +3,4 @@ export class Materia {
     nombre: string;
     profesor: string;
     tipoCurso: string;
-}
+}   

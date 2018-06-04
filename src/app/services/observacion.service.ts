@@ -23,7 +23,7 @@ export class ObservacionService {
   constructor(public http: Http) { }
 
     getObservaciones(): Observable <Observacion []> {
-   
+      return null;
     }
 
     addUsuario (observacion: Observacion){
