@@ -29,6 +29,15 @@ export class MateriaComponent implements OnInit {
     });
   }
 
+  refrescar(){
+    this.materia={
+      id:0,
+      nombre:"",
+      profesor:"NN",
+      tipoCurso:"Tipo de curso"
+    }
+    this.materias=[];
+  }
   addMateria(){
     let materiaVacia={
       id:0,
@@ -37,14 +46,18 @@ export class MateriaComponent implements OnInit {
       tipoCurso:"Tipo de curso"
     };
 
-    if(this.materia.nombre==materiaVacia.nombre){
+    let parar:boolean=false;
+    if(this.materia.nombre===materiaVacia.nombre){
+      parar=true;
       alert("Debe ingresar un nombre para la materia");
     }
-    if(this.materia.tipoCurso==materiaVacia.tipoCurso){
+    if(this.materia.tipoCurso===materiaVacia.tipoCurso){
+      parar=true;
       alert("Debe seleccionar un tipo de curso");
     }
     console.log("entra add materia");
-    if(this.materias.filter(materia=>materia.nombre==this.materia.nombre).length>0){
+    if(parar==false){
+      if(this.materias.filter(materia=>materia.nombre==this.materia.nombre).length>0){
       alert("la materia ya existe");
     } else{
       console.log(this.materia);
@@ -53,7 +66,8 @@ export class MateriaComponent implements OnInit {
         this.materias=valores;
       });
     } 
-    
+  }
+    this.refrescar();
   }
 
 }

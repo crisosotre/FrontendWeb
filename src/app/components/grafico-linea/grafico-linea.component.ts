@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AsistenciaService} from '../../services/asistencia.service'
+import {MateriaService} from '../../services/materia.service'
+import { Materia } from '../../models/materia';
+import { Asistencia } from '../../models/asistencia';
 
 @Component({
   selector: 'app-grafico-linea',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grafico-linea.component.css']
 })
 export class GraficoLineaComponent implements OnInit {
+  public materias: Materia[];
+  public asistencias: Asistencia[];
+  public observacionesLabels:Array<any> ;
 
-  constructor() { }
+
+
+  constructor(public asistenciaService: AsistenciaService, public materiaService: MateriaService) { }
 
   ngOnInit() {
+    this.materiaService.getMaterias().subscribe( materias =>{
+      this.materias = materias
+      let nombresMaterias = materias.map(valor=>(valor.nombre))
+      this.observacionesLabels=nombresMaterias
+
+    });
   }
 
   public lineChartData:Array<any> = [

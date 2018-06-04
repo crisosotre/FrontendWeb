@@ -22,12 +22,45 @@
       <img src="/../assets/img/library-banner.jpg" height="165" width="1019" />
     </div>
     <div class="row">
-      <div class="col-sm-12">
-        <app-grafico-linea></app-grafico-linea>
+      <div class="container">
+          <h3>Usuarios Principales</h3>
+          <table class="table table-responsive table-condensed">
+              <tr>
+                <th *ngFor="let columnas of labelTablaTutores">{{columnas}}</th>
+              </tr>
+              <tr *ngFor="let dato of tutores">
+                <td>{{dato.usuario.codigo}}</td>
+                <td>{{dato.usuario.nombre}}</td>
+                <td>{{dato.usuario.carrera}}</td>
+                <td>{{dato.usuario.correo}}</td>
+                <td>{{dato.usuario.semestre}}</td>
+                <td>{{dato.tipo}}</td>
+              </tr>
+            </table>
+            <br>
+            <div class="row">
+              <div class="col-md-6">
+                  <h3>Materias</h3>
+                  <table class="table table-responsive table-condensed">
+                      <tr>
+                        <th *ngFor="let columnas of tablaMaterias">{{columnas}}</th>
+                      </tr>
+                      <tr *ngFor="let dato of materias">
+                        <td>{{dato.nombre}}</td>
+                        <td>{{dato.tipoCurso}}</td>
+                      </tr>
+                    </table>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
       </div>
+      
       <div class="col-sm-12">
           <app-grafico-dona></app-grafico-dona>
         </div>
+       <!-- <div class="col-sm-12">
+            <app-grafico-linea></app-grafico-linea>
+          </div> -->
     </div>
     <br/>
   </div>

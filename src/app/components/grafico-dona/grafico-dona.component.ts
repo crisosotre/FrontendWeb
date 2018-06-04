@@ -19,28 +19,31 @@ export class GraficoDonaComponent implements OnInit {
   public doughnutChartType:string = 'doughnut';
 
   constructor(public asistenciaService: AsistenciaService, public materiaService: MateriaService) { 
+    this.materias=[];
     console.log('constructor------');
-    this.asistenciaService.getAsistencias().subscribe( asistencias => {
-        this.asistencias=asistencias
-        this.doughnutChartData=[2,34,4]
-        let retorno: number[];
-        this.materias.forEach(materia => {
-          retorno.push(this.materias.filter(mat => mat.nombre===materia.nombre).length);
-        });
-        console.log(retorno)
-    });
-
     this.materiaService.getMaterias().subscribe( materias =>{
       this.materias = materias
       let nombresMaterias = materias.map(valor=>(valor.nombre))
       this.doughnutChartLabels=nombresMaterias
-
+      this.randomColors();
     });
   }
 
 
   ngOnInit() {
-    
+    this.asistenciaService.getAsistencias().subscribe( asistencias => {
+      this.asistencias=asistencias
+      this.doughnutChartData=[2,34,4]
+      let retorno: number[] = [];
+      this.materias.forEach(materia => {
+        let cantidad =0;
+        let filtro=this.asistencias.filter(mat => mat.materia_id==materia.id).forEach(element => {
+          cantidad+=element.numEstudiantes
+        });;
+        retorno.push(cantidad);
+      });
+      this.doughnutChartData=retorno;
+  });
     //console.log(this.materiasVar);
     console.log('inirt------');
     //console.log(this.materias);
@@ -56,4 +59,23 @@ export class GraficoDonaComponent implements OnInit {
     console.log(e);
   }
 
+  public lineChartColors:Array<any> = [];
+
+  randomColors(){
+    for (let index = 0; index < this.doughnutChartLabels.length; index++) {
+      console.log(Math.random()*255);
+      let base ='rgba('+Math.random()*255+','+Math.random()*255+','+Math.random()*255;
+      this.lineChartColors.push({ // grey
+        backgroundColor: 'rgba(148,159,177,0.2)',
+        borderColor: 'rgba(148,159,177,1)',
+        pointBackgroundColor: 'rgba(148,159,177,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      });
+      
+    }
+
+    console.dir(this.lineChartColors);
+  }
 }
