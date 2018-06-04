@@ -18,7 +18,28 @@ const httpOptions = {
 @Injectable()
 export class UsuarioService {
 
-  constructor(public http: Http) {}
+  usuario: Usuario;
+
+  constructor(public http: Http) {
+    this.usuario={
+      carrera:"",
+      codigo:"",
+      contrasena:"",
+      correo:"",
+      id:0,
+      nombre:"",
+      semestre:"",
+      tipo_usuario_id:0
+    }
+  }
+
+  getUsuario(): Usuario{
+    return this.usuario;
+  }
+
+  setUsuario(usuario: Usuario){
+    this.usuario=usuario;
+  }
 
   getUsuarios(): Observable <Usuario []> {
     return this.http

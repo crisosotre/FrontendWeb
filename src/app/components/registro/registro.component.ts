@@ -38,6 +38,7 @@ export class RegistroComponent implements OnInit {
   }
   ngOnInit() {
     console.log('CARGANDO USUARIOS');
+    console.log(this.usuarioService.getUsuario());
     this.usuarioService.getUsuarios().subscribe((usuariosNuevos) =>{
       this.usuarios= usuariosNuevos;
     });

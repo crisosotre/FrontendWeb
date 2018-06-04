@@ -23,12 +23,14 @@ export class ObservacionService {
   constructor(public http: Http) { }
 
     getObservaciones(): Observable <Observacion []> {
-      return null;
-    }
+      return this.http
+      .get('http://localhost:8000/api/observacions')
+      .map(response => response.json().data);    }
 
-    addUsuario (observacion: Observacion){
-    
-  
+    addObservacion (observacion: Observacion){
+      return this.http.post(
+        'http://127.0.0.1:8000/api/observacions',observacion,{headers: new Headers({'Content-Type':  'application/json'})}
+      ).map((response:Response)=>response.json().data);  
     }
   
   

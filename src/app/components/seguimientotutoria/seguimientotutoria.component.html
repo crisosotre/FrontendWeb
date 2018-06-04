@@ -23,102 +23,99 @@
     </div>
     <br/>
     <form id="formulario" (ngSubmit)="addAsistencia()">
-      <div class="col-sm-12">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="est">Número de estudiantes en la tutoría:</label>
-              <select id="est" class="form-control" name="numEstudiantes" [(ngModel)]="asistencia.numEstudiantes">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
+      <div class="container">
+          <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="est">Número de estudiantes en la tutoría:</label>
+                    <select id="est" class="form-control" name="numEstudiantes" [(ngModel)]="asistencia.numEstudiantes">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label id="cod">Código del estudiante:</label>
+                  <input id="cod" type="text" class="form-control" placeholder="A########" name="codigoEstudiante" [(ngModel)]="codigoEstudiante">
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="pro">Programa académico:</label>
+                    <select id="pro" class="form-control" name="programaAcademico" [(ngModel)]="asistencia.programaAcademico">
+                      <option>Administración de Empresas</option>
+                      <option>Contaduría Publica y Finanzas Internacionales</option>
+                      <option>Economía</option>
+                      <option>Economía y Negocios Internacionales</option>
+                      <option>Mercadeo Internacinal y Publicidad</option>
+                      <option>Diseño Industrial</option>
+                      <option>Diseño de Medios Interactivos</option>
+                      <option>Ingeniería de Sistemas</option>
+                      <option>Ingeniería Industrial</option>
+                      <option>Ingeniería Telemática</option>
+                      <option>Ingeniería Bioquímica</option>
+                      <option>Ciencia Política con énfasis en Relaciones Internacionales</option>
+                      <option>Derecho</option>
+                      <option>Psicología</option>
+                      <option>Música</option>
+                      <option>Sociología</option>
+                      <option>Biología</option>
+                      <option>Química</option>
+                      <option>Medicina</option>
+                      <option>Licenciatura en Educación Basica Primaria</option>
+                      <option>Licenciatura en Literatura y Lengua Castellana</option>
+                      <option>Licenciatura en Artes con énfasis en tecnologías para la creación</option>
+                      <option>Licenciatura en Lenguas Extrangeras con énfasis en inglés</option>
+                      <option>Licenciatura en Ciencias Naturales</option>
+                      <option>Licenciatura en Ciencias Sociales</option>
+                    </select>
+                  </div>
+                </div>
+      
+                <div class="col-sm-6">
+                    <label for="materia">Materia:</label>
+                  <div id="materia" class="form-group">
+                    <select class="form-control" name="nombre" [(ngModel)]="materia" >
+                      <option *ngFor="let valor of materias" [value]="valor.id">{{valor.nombre}}</option>
+                    </select>
+                  </div>
+                </div>
+      
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="tt">Tipo de Tutoría:</label>
+                    <select id="tt" class="form-control" name="tipoTutoria" [(ngModel)]="asistencia.tipoTutoria">
+                      <option>Lectura</option>
+                      <option>Escritura</option>
+                      <option>Oralidad</option>
+                    </select>
+                  </div>
+                </div>
+      
+                <div class="col-sm-6">
+                    <label for="tipotexto">Tipo texto:</label>
+                  <input id="tipotexto" type="text" class="form-control" placeholder="Reseña, ensayo, informe, resumen, artículo científico, cuento, etc." name="tipoTexto" [(ngModel)]="asistencia.tipoTexto">
+                </div>
+                <div class="col-sm-6">
+                  <label for="gd">Genero discursivo:</label>
+                  <div id="gd" class="form-group">
+                    <select class="form-control" name="generoDiscursivo" [(ngModel)]="asistencia.generoDiscursivo">
+                      <option>Argumentativo</option>
+                      <option>Expositivo-Informativo</option>
+                      <option>Descriptivo</option>
+                      <option>Narrativo</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <label id="cod">Código del estudiante:</label>
-            <input id="cod" type="text" class="form-control" name="codigoEstudiante" [(ngModel)]="codigoEstudiante">
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="pro">Programa académico:</label>
-              <select id="pro" class="form-control" name="programaAcademico" [(ngModel)]="asistencia.programaAcademico">
-                <option>Administración de Empresas</option>
-                <option>Contaduría Publica y Finanzas Internacionales</option>
-                <option>Economía</option>
-                <option>Economía y Negocios Internacionales</option>
-                <option>Mercadeo Internacinal y Publicidad</option>
-                <option>Diseño Industrial</option>
-                <option>Diseño de Medios Interactivos</option>
-                <option>Ingeniería de Sistemas</option>
-                <option>Ingeniería Industrial</option>
-                <option>Ingeniería Telemática</option>
-                <option>Ingeniería Bioquímica</option>
-                <option>Ciencia Política con énfasis en Relaciones Internacionales</option>
-                <option>Derecho</option>
-                <option>Psicología</option>
-                <option>Música</option>
-                <option>Sociología</option>
-                <option>Biología</option>
-                <option>Química</option>
-                <option>Medicina</option>
-                <option>Licenciatura en Educación Basica Primaria</option>
-                <option>Licenciatura en Literatura y Lengua Castellana</option>
-                <option>Licenciatura en Artes con énfasis en tecnologías para la creación</option>
-                <option>Licenciatura en Lenguas Extrangeras con énfasis en inglés</option>
-                <option>Licenciatura en Ciencias Naturales</option>
-                <option>Licenciatura en Ciencias Sociales</option>
-              </select>
+            <div id="boton">
+              <button type="submit" class="btn btn-outline-success boton">Registrar Tutoría</button>
+              <br/><br/>
             </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <select class="form-control" name="nombre" [(ngModel)]="materia" >
-                <option *ngFor="let valor of materias" [value]="valor.id">{{valor.nombre}}</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="tt">Tipo de Tutoría:</label>
-              <select id="tt" class="form-control" name="tipoTutoria" [(ngModel)]="asistencia.tipoTutoria">
-                <option>Lectura</option>
-                <option>Escritura</option>
-                <option>Oralidad</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-<<<<<<< HEAD
-            
-            <input type="text" class="form-control" placeholder="Tipo de Texto" name="tipoTexto" [(ngModel)]="asistencia.tipoTexto">
-=======
-            <label for="ttx">Tipo de Texto:</label>
-            <input type="text" class="form-control" placeholder="Reseña, ensayo, informe, resumen, artículo científico, cuento, etc."
-              name="tipoTexto" [(ngModel)]="asistencia.tipoTexto">
->>>>>>> 03b02771d58191118a621b4bef806e13da8be6d8
-          </div>
-          <div class="col-sm-6">
-            <label for="gd">Genero discursivo:</label>
-            <div id="gd" class="form-group">
-              <select class="form-control" name="generoDiscursivo" [(ngModel)]="asistencia.generoDiscursivo">
-                <option>Argumentativo</option>
-                <option>Expositivo-Informativo</option>
-                <option>Descriptivo</option>
-                <option>Narrativo</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="boton">
-        <button type="submit" class="btn btn-outline-success boton">Registrar Tutoría</button>
-        <br/><br/>
       </div>
     </form>
   </div>

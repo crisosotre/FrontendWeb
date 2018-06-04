@@ -66,7 +66,7 @@ export class EstudianteComponent implements OnInit {
       parar=true;
 
     }
-    if(this.estudiante.nombre=""){
+    if(this.estudiante.nombre==""){
       alert("debe ingresar el nombre del estudiante");
       parar=true;
 

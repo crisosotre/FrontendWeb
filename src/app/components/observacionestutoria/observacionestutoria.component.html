@@ -21,91 +21,95 @@
             <img src="/../assets/img/library-banner.jpg" height="165" width="1019" />
           </div>
           <br/>
-          <div class="col-sm-12">
-            <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <select class="form-control">
-                <option>Tipo de Tutoría</option>
-                <option>Lectura</option>
-                <option>Escritura</option>
-                <option>Oralidad</option>
-              </select>
-            </div>
-          </div>
-          </div>
-          <div class="row">
-          <div class="col-sm-6">
-              <h5>¿Resolví mis inquietudes?</h5>
-              <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                  <label class="custom-control-label" for="customRadio1">Si</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                  <label class="custom-control-label" for="customRadio2">No</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadio3">Más o menos</label>
+          <form id="observacionForm" (ngSubmit)="addObservacion()">
+              <div class="container">
+                  <div class="col-sm-12">
+                      <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <select class="form-control" name="tipoTutoria" [(ngModel)]="observacion.tipoTutoria">
+                          <option>Tipo de Tutoría</option>
+                          <option>Lectura</option>
+                          <option>Escritura</option>
+                          <option>Oralidad</option>
+                        </select>
+                      </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-6">
+                        <h5>¿Resolví mis inquietudes?</h5>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" value="SI" class="custom-control-input" name="inquietudesSolucionadas" [(ngModel)]="observacion.inquietudesSolucionadas">
+                            <label class="custom-control-label" for="customRadio1">Si</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2"  value="NO"  class="custom-control-input" inquietudesSolucionadas name="inquietudesSolucionadas" [(ngModel)]="observacion.inquietudesSolucionadas">
+                            <label class="custom-control-label" for="customRadio2">No</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" id="customRadio3"  value="MAS/MENOS" class="custom-control-input" name="inquietudesSolucionadas" [(ngModel)]="observacion.inquietudesSolucionadas"> 
+                              <label class="custom-control-label" for="customRadio3">Más o menos</label>
+                            </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>¿El tiempo fue suficiente?</h5>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio4" class="custom-control-input" value="SI" name="tiempoSuficiente" [(ngModel)]="observacion.tiempoSuficiente">
+                            <label class="custom-control-label" for="customRadio4">Si</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio5" class="custom-control-input" value="NO" name="tiempoSuficiente" [(ngModel)]="observacion.tiempoSuficiente">
+                            <label class="custom-control-label" for="customRadio5">No</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                              <input type="radio" id="customRadio6"  class="custom-control-input" value="MAS/MENOS" name="tiempoSuficiente" [(ngModel)]="observacion.tiempoSuficiente">
+                              <label class="custom-control-label" for="customRadio6">Más o menos</label>
+                            </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <br/>
+                        <h5>¿Cómo fue el trato del tutor?</h5>
+                        <div class="row">
+                        <div class="col-sm-3">
+                           <p>Debe mejorar</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <ngb-rating [(rate)]="observacion.tratoDelTutor"></ngb-rating>
+                            <pre>Rango: <b>{{observacion.tratoDelTutor}}</b></pre>
+                        </div>
+                        <div class="col-sm-3">
+                            <p>Excelente</p>
+                        </div>              
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <br/>
+                        <h5>¿La tutoría me da herramientas para continuar mejorando por mi cuenta?</h5>
+                        <div class="row">
+                            <div class="col-sm-2">
+                               <p>Pocas</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <ngb-rating [(rate)]="observacion.tutoriaDaHerramientas"></ngb-rating>
+                                <pre>Rango: <b>{{observacion.tutoriaDaHerramientas}}</b></pre>
+                            </div>
+                            <div class="col-sm-3">
+                                <p>Suficientes</p>
+                            </div>              
+                          </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comentarios" name="comentarios" [(ngModel)]="observacion.comentarios"></textarea>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-outline-success boton" >Guardar</button>
+                      </div>        
                   </div>
-          </div>
-          <div class="col-sm-6">
-              <h5>¿El tiempo fue suficiente?</h5>
-              <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                  <label class="custom-control-label" for="customRadio4">Si</label>
+                  <br/>
                 </div>
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="customRadio5" name="customRadio" class="custom-control-input">
-                  <label class="custom-control-label" for="customRadio5">No</label>
-                </div>
-                <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadio6" name="customRadio" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadio6">Más o menos</label>
-                  </div>
-          </div>
-          <div class="col-sm-6">
-            <br/>
-              <h5>¿Cómo fue el trato del tutor?</h5>
-              <div class="row">
-              <div class="col-sm-3">
-                 <p>Debe mejorar</p>
               </div>
-              <div class="col-sm-4">
-                  <ngb-rating [(rate)]="trato"></ngb-rating>
-                  <pre>Rango: <b>{{trato}}</b></pre>
-              </div>
-              <div class="col-sm-3">
-                  <p>Excelente</p>
-              </div>              
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <br/>
-              <h5>¿La tutoría me da herramientas para continuar mejorando por mi cuenta?</h5>
-              <div class="row">
-                  <div class="col-sm-2">
-                     <p>Pocas</p>
-                  </div>
-                  <div class="col-sm-4">
-                      <ngb-rating [(rate)]="currentRate"></ngb-rating>
-                      <pre>Rango: <b>{{currentRate}}</b></pre>
-                  </div>
-                  <div class="col-sm-3">
-                      <p>Suficientes</p>
-                  </div>              
-                </div>
-          </div>
-          <div class="col-sm-6">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comentarios"></textarea>
-          </div>
-          <div class="col-sm-6">
-              <button type="submit" class="btn btn-outline-success boton">Guardar</button>
-            </div>        
-        </div>
-        <br/>
-      </div>
+          </form>
       </div>
       </div>
       
