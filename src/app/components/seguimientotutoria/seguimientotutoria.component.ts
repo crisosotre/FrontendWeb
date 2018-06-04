@@ -16,24 +16,26 @@ export class SeguimientotutoriaComponent implements OnInit {
   asistencias: Asistencia[];
   materia: Materia;
   materias: Materia[];
+  codigoEstudiante: string;
 
   constructor(public asistenciaService: AsistenciaService, public materiasService: MateriaService) {
     this.asistencia={
       estudiante_id:0,
       fecha:null,
-      generoDiscursivo:"",
+      generoDiscursivo:"Genero Discursivo",
       id:0,
       materia_id:0,
       numEstudiantes:0,
       tipoTexto:"",
-      tipoTutoria:"",
+      tipoTutoria:"Tipo de Tutoría",
       tutor_id:0,
-      programaAcademico:""
+      programaAcademico:"Programa Académico"
+
     }
 
     this.materia={
       id:0,
-      nombre:"",
+      nombre:"Materia",
       profesor:"",
       tipoCurso:""
     }
@@ -47,7 +49,7 @@ export class SeguimientotutoriaComponent implements OnInit {
         generoDiscursivo:"TEST",
         id:0,
         materia_id:1,
-        numEstudiantes:1,
+        numEstudiantes:0,
         tipoTexto:"TEST",
         tipoTutoria:"TEST",
         tutor_id:2,
@@ -55,7 +57,7 @@ export class SeguimientotutoriaComponent implements OnInit {
       }
       this.materia={
         id:0,
-        nombre:"TEST",
+        nombre:"Materia",
         profesor:"TEST",
         tipoCurso:"TEST"
       }
@@ -82,18 +84,18 @@ export class SeguimientotutoriaComponent implements OnInit {
     this.asistencia={
       estudiante_id:1,
       fecha: "2012-03-21 00:00:00",
-      generoDiscursivo:"TEST",
+      generoDiscursivo:"Genero Discursivo",
       id:44,
       materia_id:1,
-      numEstudiantes:1,
-      tipoTexto:"TEST",
-      tipoTutoria:"TEST",
+      numEstudiantes:0,
+      tipoTexto:"Tipo de Texto",
+      tipoTutoria:"Tipo de Tutoría",
       tutor_id:1,
-      programaAcademico: "TEST"
+      programaAcademico: "Programa Académico"
     }
     this.materia={
       id:0,
-      nombre:"TEST",
+      nombre:"Materia",
       profesor:"TEST",
       tipoCurso:"TEST"
     }

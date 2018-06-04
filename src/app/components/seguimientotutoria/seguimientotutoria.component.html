@@ -2,8 +2,9 @@
 
   <div class="col-sm-3" id="menu">
 
-    <img src="/../assets/img/foto.png"  height="200"  style="background: gainsboro; border: none; padding-left: 20%;padding-top: 5%;">
-    <br/><br/>
+    <img src="/../assets/img/foto.png" height="200" style="background: gainsboro; border: none; padding-left: 20%;padding-top: 5%;">
+    <br/>
+    <br/>
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
         aria-selected="true">Seguimiento de Tutoría</a>
@@ -21,35 +22,27 @@
       <img src="/../assets/img/banner.jpg" height="165" width="1019" />
     </div>
     <br/>
-    <form id="formulario" (ngSubmit)="addUser()">
+    <form id="formulario" (ngSubmit)="addAsistencia()">
       <div class="col-sm-12">
         <div class="row">
-      <div class="col-sm-6">
-        <input type="text" class="form-control" placeholder="Cantidad de estudiantes en la tutoría" >
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group">
-              <select class="form-control">
-                <option>Semestre</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-              </select>
+          <div class="col-sm-6">  
+            <div class="form-group">
+                 <select class="form-control" name="numEstudiantes" [(ngModel)]="asistencia.numEstudiantes">
+                      <option>Número de estudiantes en la tutoría</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                 </select>
             </div>
-      </div>
-      <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="Nombre del Estudiante" >
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group">
-              <select class="form-control">
+          </div>
+          <div class="col-sm-6">
+              <input type="text" class="form-control" placeholder="Código de Estudiante" name="codigoEstudiante" [(ngModel)]="codigoEstudiante">
+            </div>
+          <div class="col-sm-6">        
+            <div class="form-group">
+              <select class="form-control" name="programaAcademico" [(ngModel)]="asistencia.programaAcademico">
                 <option>Programa Académico</option>
                 <option>Administración de Empresas</option>
                 <option>Contaduría Publica y Finanzas Internacionales</option>
@@ -78,51 +71,55 @@
                 <option>Licenciatura en Ciencias Sociales</option>
               </select>
             </div>
-      </div>
-      <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="Código de Estudiante" >
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group">
-              <select class="form-control">
-                <option>Curso</option>
+          </div>
+          
+          <div class="col-sm-6">            
+            <div class="form-group">
+              <select class="form-control" name="nombre" [(ngModel)]="materia.nombre">
+                <option>Materia</option>
               </select>
             </div>
-      </div>
-      <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="Profesor del Curso" >
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group">
-              <select class="form-control" >
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control" name="tipoTutoria" [(ngModel)]="asistencia.tipoTutoria">
                 <option>Tipo de Tutoría</option>
+                <option>Lectura</option>
+                <option>Escritura</option>
+                <option>Oralidad</option>
               </select>
             </div>
-      </div>
-      <div class="col-sm-6">
-          <input type="text" class="form-control" placeholder="Tipo de Texto" >
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group">
-              <select class="form-control" >
+          </div>
+
+          <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="Tipo de Texto" name="tipoTexto" [(ngModel)]="asistencia.tipoTexto">
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control" name="generoDiscursivo" [(ngModel)]="asistencia.generoDiscursivo">
                 <option>Genero Discursivo</option>
+                <option>Argumentativo</option>
+                <option>Expositivo-Informativo</option>
+                <option>Descriptivo</option>
+                <option>Narrativo</option>
               </select>
             </div>
-      </div>
-    </div>
-      <a class="nav-link active"  href="" id="evaluacion">Realizar evaluación de desempeño del estudiante</a>
-    <div class="row">
-      <div class="col-sm-6">
-          <button type="submit" class="btn btn-outline-success boton">Registrar Tutoría</button>
-      </div>
-      <div class="col-sm-6">
-          <button type="submit" class="btn btn-outline-danger boton">Cancelar</button>
+          </div>
         </div>
-    </div>
-    <br/>
-  </div>
+        <a class="nav-link active" href="" id="evaluacion">Realizar evaluación de desempeño del estudiante</a>
+        <div class="row">
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-outline-success boton">Registrar Tutoría</button>
+          </div>
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-outline-danger boton">Cancelar</button>
+          </div>
+        </div>
+        <br/>
+      </div>
     </form>
-</div>
+  </div>
 </div>
 
 <footer>
