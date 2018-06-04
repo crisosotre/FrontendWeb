@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Materia} from '../../models/materia';
 import {Asistencia} from '../../models/asistencia';
+import {Usuario} from '../../models/usuario';
+
 import {AsistenciaService} from '../../services/asistencia.service';
 import {MateriaService} from '../../services/materia.service';
+import {UsuarioService} from '../../services/usuario.service';
 
 
 @Component({
@@ -14,11 +17,13 @@ export class SeguimientotutoriaComponent implements OnInit {
 
   asistencia: Asistencia;
   asistencias: Asistencia[];
-  materia: Materia;
+  materia: number;
   materias: Materia[];
-  codigoEstudiante: string;
 
-  constructor(public asistenciaService: AsistenciaService, public materiasService: MateriaService) {
+  codigoEstudiante: string;
+  estudiantes: Usuario[];
+
+  constructor(public asistenciaService: AsistenciaService, public materiasService: MateriaService, public usuarioService: UsuarioService) {
     this.asistencia={
       estudiante_id:0,
       fecha:null,
@@ -32,39 +37,17 @@ export class SeguimientotutoriaComponent implements OnInit {
       programaAcademico:"Programa Académico"
 
     }
-    this.materia={
-      id:0,
-      nombre:"Materia",
-      profesor:"",
-      tipoCurso:""
-    }
-
     }
 
     addAsistencia(){
-      this.asistencia={
-        estudiante_id:1,
-        fecha:"",
-        generoDiscursivo:"TEST",
-        id:0,
-        materia_id:1,
-        numEstudiantes:0,
-        tipoTexto:"TEST",
-        tipoTutoria:"TEST",
-        tutor_id:2,
-        programaAcademico:"TEST"
-      }
-      this.materia={
-        id:0,
-        nombre:"Materia",
-        profesor:"TEST",
-        tipoCurso:"TEST"
-      }
+      this.asistencia.materia_id=this.materia;
+      console.log(this.asistencia);
       
-      this.asistenciaService.addAsistencia(this.asistencia).subscribe((response) =>{
+      this.asistenciaService.addAsistencia  (this.asistencia).subscribe((response) =>{
         console.log(response.data);
       });
       this.refrescar();
+      
     }
 
     getMaterias(){
@@ -74,58 +57,33 @@ export class SeguimientotutoriaComponent implements OnInit {
     }
 
   ngOnInit() {
-    //this.asistenciaService.dummy();
     this.asistenciaService.getAsistencias().subscribe(asistencias=>
     {
       this.asistencias=asistencias
     }
     );
+    this.materiasService.getMaterias().subscribe( materias =>{
+      this.materias = materias
+    });
 
-    this.asistencia={
-      estudiante_id:1,
-      fecha: "2012-03-21 00:00:00",
-      generoDiscursivo:"Genero Discursivo",
-      id:44,
-      materia_id:1,
-      numEstudiantes:0,
-      tipoTexto:"Tipo de Texto",
-      tipoTutoria:"Tipo de Tutoría",
-      tutor_id:1,
-      programaAcademico: "Programa Académico"
-    }
-    this.materia={
-      id:0,
-      nombre:"Materia",
-      profesor:"TEST",
-      tipoCurso:"TEST"
-    }
+    this.usuarioService.getUsuarios().subscribe(usuarios =>{
+      this.estudiantes=usuarios.filter(valor => valor.tipo_usuario_id==1);
+    });
     //campo nombre materia
     let nombreMateria="Ingeniería de Software"
-
-
     let materias: Materia[]
     this.materiasService.getMaterias().subscribe(valores=>{
       materias=valores
-      console.log(materias);
       let busquedaMaterias =valores.filter(materia=>materia.nombre===nombreMateria);
       if(busquedaMaterias.length>0){
         this.asistencia.materia_id=busquedaMaterias.pop().id;
-        console.log("id materia: "+this.asistencia.materia_id);
         let response2=this.asistenciaService.addAsistencia(this.asistencia).subscribe((response) =>{
           console.log(response.data);
         });
       }
     })
-    //else{
-    //  this.materiasService.addMaterias(this.materia).subscribe(valores=>{
-    //    console.log(valores);
-    //  })
     }
 
-    //if(this.materias)
-
-    
-   // console.log(response2);
    refrescar(){
     this.asistencia={
       estudiante_id:0,
@@ -141,6 +99,9 @@ export class SeguimientotutoriaComponent implements OnInit {
 
     }
    }
+
+
+   
   }
 
 

@@ -53,7 +53,7 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
     UsuarioService,
     TipoUsuarioService,
     MateriaService,
-    AsistenciaService
+    AsistenciaService,
   ],
   bootstrap: [AppComponent]
 })

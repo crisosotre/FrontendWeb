@@ -25,11 +25,6 @@ export class AsistenciaService {
                .get('http://localhost:8000/api/asistencias')
                .map(response => response.json().data);
   }
-
-  dummy(){
-    this.http.get('http://localhost:8000/api/asistencias').map(response => response.json().data).subscribe(x=>console.log(x));
-  }
-
   addAsistencia (asistencia: Asistencia){
     return this.http.post(
       'http://localhost:8000/api/asistencias', asistencia,
