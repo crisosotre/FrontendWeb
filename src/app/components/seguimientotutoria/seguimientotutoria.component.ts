@@ -7,6 +7,7 @@ import {AsistenciaService} from '../../services/asistencia.service';
 import {MateriaService} from '../../services/materia.service';
 import {UsuarioService} from '../../services/usuario.service';
 import { isNull } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,8 +24,12 @@ export class SeguimientotutoriaComponent implements OnInit {
 
   codigoEstudiante: string;
   estudiantes: Usuario[];
+  usuario: Usuario;
 
-  constructor(public asistenciaService: AsistenciaService, public materiasService: MateriaService, public usuarioService: UsuarioService) {
+  tipoId:string;
+
+
+  constructor(public asistenciaService: AsistenciaService, public materiasService: MateriaService, public usuarioService: UsuarioService, private router: Router) {
       this.asistencia={
         estudiante_id:0,
         fecha:null,
@@ -40,12 +45,41 @@ export class SeguimientotutoriaComponent implements OnInit {
       }
     }
 
+    logout (){
+      localStorage.removeItem('correo');
+      this.router.navigate(['inicio'])
+    }
+
+    seguimiento(){
+      this.router.navigate(['seguimientotutoria'])
+    }
+
+    observaciones(){
+      this.router.navigate(['observacionestutoria'])
+    }
+
+    adicionarMateria() {
+      this.router.navigate(['materia'])
+    }
+
+    registrarEstudiante() {
+      this.router.navigate(['estudiante'])
+    }
+
+    registrarTutor(){
+      this.router.navigate(['registro'])
+    }
+
+    reportes(){
+      this.router.navigate(['reporte'])
+    }
+
     addAsistencia(){
       this.asistencia.materia_id=this.materia;
       let filtro = this.estudiantes.filter(valor=>valor.codigo===this.codigoEstudiante);
       let estudiante = filtro.pop();
       //quemadp
-      let idtutor:number = this.usuarioService.getUsuario().id;
+      let idtutor:number =  parseInt(this.tipoId);
 
       this.asistencia.tutor_id=idtutor;
       if(estudiante==null){
@@ -94,6 +128,8 @@ export class SeguimientotutoriaComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.tipoId=localStorage.getItem('tipoId')
+
     let actual = new Date;
     let año =actual.getFullYear();
     let mes = actual.getMonth()+1;
@@ -106,8 +142,10 @@ export class SeguimientotutoriaComponent implements OnInit {
     this.asistencia.fecha= año+"-"+mes+"-"+dia+" "+horas+":"+minutos+":"+segundos;
     console.log(this.asistencia.fecha);
     this.cargarDatos();
+    this.usuario=this.usuarioService.getUsuario();
     }
 
+    
     cargarDatos(){
       this.asistenciaService.getAsistencias().subscribe(asistencias=>
         {

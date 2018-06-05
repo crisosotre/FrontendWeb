@@ -29,3 +29,11 @@ footer {
 #form {
     padding-left: 30%;
 }
+
+h2, h3 {
+    text-align: center;
+}
+
+.centrar {
+    padding-left: 25%;
+}

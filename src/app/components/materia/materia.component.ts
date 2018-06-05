@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Materia} from '../../models/materia';
 import {MateriaService} from '../../services/materia.service';
+import { Router } from '@angular/router';
+import {Usuario} from '../../models/usuario';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-materia',
@@ -11,8 +14,12 @@ export class MateriaComponent implements OnInit {
 
   materia: Materia;
   materias: Materia[];
+  usuario: Usuario;
   
-  constructor(public materiasService: MateriaService) { 
+  tipoId:string;
+
+
+  constructor(public materiasService: MateriaService, private router: Router, public usuarioService: UsuarioService) { 
     this.materia={
       id:0,
       nombre:"",
@@ -21,12 +28,42 @@ export class MateriaComponent implements OnInit {
     }
     this.materias=[];
   }
+
+  logout (){
+    localStorage.removeItem('correo');
+    this.router.navigate(['inicio'])
+  }
+
+  seguimiento(){
+    this.router.navigate(['seguimientotutoria'])
+  }
+
+  observaciones(){
+    this.router.navigate(['observacionestutoria'])
+  }
+
+  adicionarMateria() {
+    this.router.navigate(['materia'])
+  }
+
+  registrarEstudiante() {
+    this.router.navigate(['estudiante'])
+  }
+
+  registrarTutor(){
+    this.router.navigate(['registro'])
+  }
+
+  reportes(){
+    this.router.navigate(['reporte'])
+  }
   
   ngOnInit() {
     this.materiasService.getMaterias().subscribe(materias=>{
       this.materias=materias;
       console.log(this.materias);
     });
+    this.tipoId=localStorage.getItem('tipoId');
   }
 
   refrescar(){

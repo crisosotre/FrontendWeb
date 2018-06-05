@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from '../../models/usuario';
 import {UsuarioService} from '../../services/usuario.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -11,7 +12,10 @@ export class RegistroComponent implements OnInit {
   usuario:Usuario;
   usuarios: Usuario[];
 
-  constructor(public usuarioService: UsuarioService) {
+  tipoId:string;
+
+
+  constructor(public usuarioService: UsuarioService, private router: Router) {
     this.usuario={
       id: 0,
     codigo: "",
@@ -42,6 +46,13 @@ export class RegistroComponent implements OnInit {
     this.usuarioService.getUsuarios().subscribe((usuariosNuevos) =>{
       this.usuarios= usuariosNuevos;
     });
+    this.tipoId=localStorage.getItem('tipoId')
+
+  }
+
+  logout (){
+    localStorage.removeItem('correo');
+    this.router.navigate(['inicio'])
   }
 
   addUser(){
@@ -52,6 +63,30 @@ export class RegistroComponent implements OnInit {
     });
     console.log(response2);
     this.refrescar();
+  }
+
+  seguimiento(){
+    this.router.navigate(['seguimientotutoria'])
+  }
+
+  observaciones(){
+    this.router.navigate(['observacionestutoria'])
+  }
+
+  adicionarMateria() {
+    this.router.navigate(['materia'])
+  }
+
+  registrarEstudiante() {
+    this.router.navigate(['estudiante'])
+  }
+
+  registrarTutor(){
+    this.router.navigate(['registro'])
+  }
+
+  reportes(){
+    this.router.navigate(['reporte'])
   }
 
 }

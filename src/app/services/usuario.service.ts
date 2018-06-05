@@ -56,6 +56,5 @@ export class UsuarioService {
     ).map((response:Response)=>response.json().data);
 
   }
-
   
 }
