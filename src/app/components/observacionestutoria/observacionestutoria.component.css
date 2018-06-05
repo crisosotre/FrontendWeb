@@ -25,3 +25,11 @@ footer {
     width: 480px;
     text-align: center;
 }
+
+h2, h3 {
+    text-align: center;
+}
+
+.centrar {
+    padding-left: 25%;
+}

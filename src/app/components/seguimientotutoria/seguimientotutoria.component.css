@@ -27,10 +27,13 @@ footer {
 }
 
 #boton {
-    padding-left: 40%;
+    padding-left: 25%;
 }
 
 #boton button {
-    width: 30%;
+    text-align: center;
+}
+
+h2, h3 {
     text-align: center;
 }

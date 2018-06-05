@@ -39,10 +39,12 @@ export class LoginComponent implements OnInit {
     console.log(this.usuario);
     let usuariosFiltrados = this.usuarios.filter(valor =>valor.correo===this.usuario.correo 
       && (valor.tipo_usuario_id==1 || valor.tipo_usuario_id==2) && valor.contrasena === this.usuario.contrasena);
-    console.dir(usuariosFiltrados);
+      console.dir(usuariosFiltrados);
     if(usuariosFiltrados.length>0){
       this.usuarioService.setUsuario(usuariosFiltrados.pop())
-      localStorage.setItem('correo',usuariosFiltrados[0].correo);
+      console.dir(this.usuarioService.usuario.correo)
+      localStorage.setItem('correo',this.usuarioService.usuario.correo)
+      console.log("entraaaaa");
       this.router.navigate(['seguimientotutoria']);
       console.log("inicia sesion")
     }

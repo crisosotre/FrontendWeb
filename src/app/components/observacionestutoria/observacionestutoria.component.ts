@@ -5,6 +5,7 @@ import {ObservacionService} from '../../services/observacion.service';
 
 import {Usuario} from '../../models/usuario';
 import {Observacion} from '../../models/observacion'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-observacionestutoria',
@@ -21,12 +22,41 @@ export class ObservacionestutoriaComponent implements OnInit {
   rate=4;
   observacion:Observacion;
 
-  constructor(public observacionService:ObservacionService, public usuarioService:UsuarioService) { 
+  constructor(public observacionService:ObservacionService, public usuarioService:UsuarioService, private router: Router) { 
     this.refrescar();
   }
 
   ngOnInit() {
+    this.usuario=this.usuarioService.getUsuario();
+  }
+  
+  logout (){
+    localStorage.removeItem('correo');
+    this.router.navigate(['inicio'])
+  }
 
+  seguimiento(){
+    this.router.navigate(['seguimientotutoria'])
+  }
+
+  observaciones(){
+    this.router.navigate(['observacionestutoria'])
+  }
+
+  adicionarMateria() {
+    this.router.navigate(['materia'])
+  }
+
+  registrarEstudiante() {
+    this.router.navigate(['estudiante'])
+  }
+
+  registrarTutor(){
+    this.router.navigate(['registro'])
+  }
+
+  reportes(){
+    this.router.navigate(['reporte'])
   }
   
   refrescar(){

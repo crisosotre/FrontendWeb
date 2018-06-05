@@ -1,7 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="inicio">Centro LEO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto"></ul>
+      <form class="form-inline my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" (click)="login()">Iniciar Sesión</a>
+              </li>
+          </ul>
+      </form>
+  </div>
+</nav>
+
 <div id="fondo">
-<div class="container centrar">
+  <div class="centrar" id="contenido">
   <h1>Centro LEO</h1>
-  <P>Universidad Icesi</P>
+  <img src="/assets/img/logo-icesi.png" />
 </div>
 </div>
 

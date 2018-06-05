@@ -25,3 +25,11 @@ footer {
     width: 480px;
     text-align: center;
 }
+
+h2 {
+    text-align: center;
+}
+
+#tabla {
+    padding-left: 33%;
+}

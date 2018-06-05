@@ -3,6 +3,7 @@
     background-size: cover;
     height: 100%;
     width: 100%;
+    position: relative;
 }
 
 footer {
@@ -13,7 +14,25 @@ footer {
 }
 
 .centrar {
+	border: 1px solid rgba(255,255,255,0.3);
+	border-radius: 5px;
+    color: white;
+    padding: 3em;
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
     text-align: center;
+}
+
+#banner {
     padding-top: 20%;
-    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Old Standard TT', serif;
+    font-weight: lighter;
+    font-size: 500%
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario'
 import { UsuarioService } from '../../services/usuario.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estudiante',
@@ -11,9 +12,10 @@ export class EstudianteComponent implements OnInit {
 
   estudiante: Usuario;
   estudiantes: Usuario[];
+  usuario: Usuario;
 
 
-  constructor(public estudiantesService: UsuarioService) { 
+  constructor(public estudiantesService: UsuarioService,public usuarioService: UsuarioService ,private router: Router) { 
     this.estudiante={
       carrera: "Programa Académico",
       codigo: "",
@@ -29,11 +31,41 @@ export class EstudianteComponent implements OnInit {
 
   }
 
+  logout (){
+    localStorage.removeItem('correo');
+    this.router.navigate(['inicio'])
+  }
+
+  seguimiento(){
+    this.router.navigate(['seguimientotutoria'])
+  }
+
+  observaciones(){
+    this.router.navigate(['observacionestutoria'])
+  }
+
+  adicionarMateria() {
+    this.router.navigate(['materia'])
+  }
+
+  registrarEstudiante() {
+    this.router.navigate(['estudiante'])
+  }
+
+  registrarTutor(){
+    this.router.navigate(['registro'])
+  }
+
+  reportes(){
+    this.router.navigate(['reporte'])
+  }
+
   ngOnInit() {
     this.estudiantesService.getUsuarios().subscribe(estudiantes =>{
       let estudiantesFiltro = estudiantes.filter(valores => valores.tipo_usuario_id==3);
       console.log(estudiantesFiltro);
     });
+    this.usuario=this.usuarioService.getUsuario();
   }
 
   addEstudiante(){
