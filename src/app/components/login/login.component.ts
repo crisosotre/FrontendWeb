@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.usuarioService.getUsuarios().subscribe(users=>{
       this.usuarios=users;
+      console.log(this.usuarios);
     });
   }
 
@@ -41,8 +42,9 @@ export class LoginComponent implements OnInit {
       && (valor.tipo_usuario_id==1 || valor.tipo_usuario_id==2) && valor.contrasena === this.usuario.contrasena);
     console.dir(usuariosFiltrados);
     if(usuariosFiltrados.length>0){
-      this.usuarioService.setUsuario(usuariosFiltrados.pop())
-      localStorage.setItem('correo',usuariosFiltrados[0].correo);
+      let usuarioLogin=usuariosFiltrados.pop()
+      this.usuarioService.setUsuario(this.usuario)
+      localStorage.setItem('correo',usuarioLogin.correo);
       this.router.navigate(['seguimientotutoria']);
       console.log("inicia sesion")
     }
